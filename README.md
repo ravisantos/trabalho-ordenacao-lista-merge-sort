@@ -29,25 +29,25 @@ def merge_sort(lista):
     if len(lista) <= 1:
         return lista
 
-    mid = len(lista) // 2
-    left = merge_sort(lista[:mid])
-    right = merge_sort(lista[mid:])
+    meio = len(lista) // 2
+    esquerda = merge_sort(lista[:meio])
+    direita = merge_sort(lista[meio:])
 
-    return merge(left, right)
+    return merge(esquerda, direita)
 
-def merge(left, right):
-    if not left:
-        return right
-    if not right:
-        return left
+def merge(esquerda, direita):
+    if not esquerda:
+        return direita
+    if not direita:
+        return esquerda
 
-    if left[0] < right[0]:
-        return [left[0]] + merge(left[1:], right)
+    if esquerda[0] < direita[0]:
+        return [esquerda[0]] + merge(esquerda[1:], direita)
     else:
-        return [right[0]] + merge(left, right[1:])
+        return [direita[0]] + merge(esquerda, direita[1:])
 
 sorted_list = merge_sort(lista)
-print("Lista ordenada:", sorted_list)
+print("Lista ordenada:", sorted_list) 
 ```
 
 ---
